@@ -1,0 +1,306 @@
+.carousel {
+	margin: 5rem;
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	grid-template-rows: min-content min-content;
+	grid-column-gap: 4rem;
+	grid-row-gap: 2.5rem;
+	justify-items: center;
+
+	&_tabs {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 1rem;
+		width: 75%;
+		&-btn {
+			padding: 0.7rem;
+			font-family: $font-head;
+			font-size: 1.8rem;
+			border: none;
+			border-radius: 3px;
+			position: relative;
+			cursor: pointer;
+			color: $color-primary;
+			transition: all 0.5s;
+
+			&:hover {
+				color: $color-tertiary;
+				background-image: linear-gradient(
+					to right bottom,
+					rgba($color-primary, 0.1),
+					rgba($color-primary, 1)
+				);
+			}
+
+			&::after {
+				content: '';
+				display: block;
+				background-color: $color-secondary;
+				height: 2px;
+				width: 100%;
+				transition: all 0.5s;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+
+			&:hover::after {
+				width: 0%;
+			}
+		}
+	}
+
+	&_info {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+
+		&_capsule {
+			height: 100%;
+			display: grid;
+			animation: enter_leftward 1.5s ease-in-out 0.1s;
+			text-align: end;
+			background-image: linear-gradient(
+				to right,
+				rgba($color-tertiary2, 0) 65%,
+				rgba($color-tertiary2, 0.6)
+			);
+			padding: 2rem 5rem;
+			border-radius: 20px;
+
+			&-cap {
+				width: 80%;
+				font-size: 3rem;
+				place-self: center end;
+				font-family: $font-head;
+				color: $color-tertiary;
+			}
+			&-text {
+				width: 70%;
+				font-size: 1.7rem;
+				line-height: 1.7;
+				place-self: end;
+			}
+			&-link {
+				place-self: end;
+				text-decoration: none;
+				color: inherit;
+				font-size: 1.3rem;
+				height: fit-content;
+				color: $color-secondary;
+				transition: all 0.2s;
+				&:hover {
+					color: $color-secondary;
+					transform: translateY(-0.3rem);
+				}
+			}
+		}
+	}
+
+	&_images {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+		overflow: hidden;
+		place-self: start;
+		&-img {
+			width: 40vw;
+			height: 50vh;
+			object-fit: cover;
+			border-radius: 20px;
+			animation: enter_leftward 1.5s ease-in-out;
+			z-index: $z-medium;
+		}
+	}
+}
+
+.active {
+	background-image: linear-gradient(
+		to right bottom,
+		rgba($color-primary, 0.1),
+		rgba($color-primary, 1)
+	);
+
+	color: $color-tertiary;
+
+	&::after {
+		content: '';
+		display: block;
+		background-color: $color-secondary;
+		height: 2px;
+		width: 0%;
+		transition: all 0.4s;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+// 1200px
+@media only screen and (max-width: $bp-largest) {
+	.carousel {
+		grid-template-columns: 2.2fr 3fr;
+		grid-column-gap: 4rem;
+		grid-row-gap: 2rem;
+
+		&_tabs {
+			width: 85%;
+			&-btn {
+				padding: 0.6rem;
+				font-size: 1.7rem;
+			}
+		}
+
+		&_info {
+			&_capsule {
+				padding: 2rem 3.5rem;
+
+				&-cap {
+					width: 100%;
+					font-size: 2.2rem;
+				}
+				&-text {
+					width: 80%;
+					font-size: 1.5rem;
+					line-height: 1.2;
+				}
+
+				&-link {
+					font-size: 1.2rem;
+				}
+			}
+		}
+
+		&_images {
+			&-img {
+				width: 42vw;
+				height: 40vh;
+			}
+		}
+	}
+}
+
+// 1000px
+@media only screen and (max-width: $bp-large) {
+	.carousel {
+		&_tabs {
+			&-btn {
+				font-size: 1.5rem;
+			}
+		}
+
+		&_info {
+			&_capsule {
+				padding: 1.4rem 2rem;
+
+				&-cap {
+					font-size: 2rem;
+				}
+				&-text {
+					width: 80%;
+					font-size: 1.3rem;
+					line-height: 1.1;
+				}
+			}
+		}
+
+		&_images {
+			&-img {
+				width: 42vw;
+				height: 35vh;
+			}
+		}
+	}
+}
+
+// 800px
+@media only screen and (max-width: $bp-medium) {
+	.carousel {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, min-content);
+		justify-content: center;
+		justify-items: center;
+
+		&_tabs {
+			grid-column: 1 / -1;
+			grid-row: 1 / 2;
+			width: 100%;
+			&-btn {
+				font-size: 1.3rem;
+			}
+		}
+
+		&_info {
+			grid-column: 1 / -1;
+			grid-row: 3 / 4;
+
+			&_capsule {
+				padding: 1.4rem 2rem;
+				text-align: center;
+				grid-row-gap: 2rem;
+
+				&-cap {
+					font-size: 2rem;
+					width: 100%;
+					place-self: center;
+				}
+				&-text {
+					place-self: center;
+					width: 100%;
+					width: 80%;
+					font-size: 1.3rem;
+					line-height: 1.1;
+				}
+				&-link {
+					font-size: 1.1rem;
+				}
+			}
+		}
+
+		&_images {
+			grid-column: 1 / -1;
+			grid-row: 2 / 3;
+			width: 100%;
+			place-self: center;
+			&-img {
+				width: 83vw;
+				height: 35vh;
+			}
+		}
+	}
+}
+
+// 600px
+@media only screen and (max-width: $bp-small) {
+	.carousel {
+		&_tabs {
+			grid-gap: 0.2rem;
+			&-btn {
+				font-size: 1.1rem;
+			}
+		}
+
+		&_images {
+			&-img {
+				width: 76vw;
+				height: 30vh;
+				border-radius: 10px;
+			}
+		}
+	}
+}
+
+// 400px
+@media only screen and (max-width: $bp-old) {
+	.carousel {
+		&_images {
+			&-img {
+				width: 72vw;
+				height: 20vh;
+				border-radius: 5px;
+			}
+		}
+	}
+}

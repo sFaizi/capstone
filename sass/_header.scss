@@ -1,0 +1,319 @@
+header {
+	position: relative;
+}
+.banner {
+	margin: 0 5rem;
+
+	font-size: 1.2rem;
+	font-weight: 500;
+	padding: 1.2rem;
+	display: grid;
+	grid-template-columns: min-content repeat(3, max-content) 1fr;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	grid-column-gap: 3vw;
+	&-img {
+		width: 20rem;
+	}
+
+	&-mail,
+	&-phone {
+		text-decoration: none;
+		color: inherit;
+		&:active,
+		&:hover {
+			color: $color-secondary;
+		}
+	}
+
+	&-phone span {
+		vertical-align: -0.6rem;
+	}
+
+	&-mail span {
+		vertical-align: -0.6rem;
+	}
+
+	&_social {
+		display: grid;
+		grid-template-columns: repeat(4, min-content);
+		grid-gap: 1.5rem;
+		&_link {
+			&-svg {
+				height: 2.8rem;
+				width: 2.8rem;
+				&:hover,
+				&:active {
+					fill: $color-secondary;
+				}
+			}
+		}
+	}
+
+	&-address {
+		line-height: 1.8;
+	}
+
+	&-address span {
+		vertical-align: -0.6rem;
+	}
+}
+
+.menu {
+	padding: 1.1rem 5rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 10rem);
+	grid-gap: 2.5rem;
+	justify-content: center;
+	justify-items: center;
+	background-color: $color-primary;
+	position: relative;
+	z-index: $z-sky;
+
+	&-link {
+		text-decoration: none;
+		color: $color-tertiary2;
+		font-size: 1.45rem;
+
+		&::after {
+			display: block;
+			content: '';
+			width: 0;
+			height: 1px;
+			background-color: $color-tertiary2;
+			margin-top: 0.35rem;
+			transition: all 0.4s;
+		}
+
+		&:hover::after {
+			width: 100%;
+		}
+
+		&:hover,
+		&:active {
+			color: $color-tertiary;
+		}
+	}
+	&-lang {
+		height: min-content;
+	}
+}
+
+.miniNav {
+	position: relative;
+	z-index: $z-high;
+	&--check {
+		position: fixed;
+		top: 2rem;
+		right: 2rem;
+		display: none;
+	}
+
+	&--checkLabel {
+		position: fixed;
+		top: 0.7rem;
+		right: 1.5rem;
+		z-index: $z-sky;
+		cursor: pointer;
+		background-color: transparent;
+		height: 3rem;
+		width: 4rem;
+
+		&_span {
+			transform: translate(0.5rem, 1.4rem);
+			&,
+			&::after,
+			&::before {
+				width: 3rem;
+				height: 3px;
+				background-color: $color-secondary;
+				display: inline-block;
+				transition: all 0.6s;
+				position: relative;
+			}
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+			}
+
+			&::before {
+				top: -8px;
+				left: 0;
+			}
+
+			&::after {
+				top: 8px;
+				left: 0;
+			}
+		}
+	}
+
+	&--background {
+		position: fixed;
+		top: 0;
+		right: 0;
+
+		background-color: rgba($color-tertiary, 0.3);
+		border: 1px dashed $color-primary;
+		border-radius: 2px;
+		transform: translate(-1.5rem, 0.7rem);
+		height: 3rem;
+		width: 4rem;
+		z-index: $z-highest;
+		transition: all 0.9s;
+	}
+
+	&--logo {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: $z-sky;
+
+		background-color: #fff;
+		border-radius: 3px;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s;
+		transform: scale(0.5);
+	}
+
+	&_ul {
+		z-index: $z-sky;
+		position: fixed;
+		top: 20%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		display: grid;
+		grid-gap: 2rem;
+		justify-items: center;
+		transition: all 0.3s ease-out 0.2s;
+		opacity: 0;
+		visibility: hidden;
+
+		&_li {
+			list-style: none;
+			&--a {
+				text-decoration: none;
+				color: $color-tertiary2;
+				font-size: 1.8rem;
+
+				&:active {
+					color: #fff;
+				}
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	&--check:checked ~ &--logo {
+		transform: translate(2.5rem, 2.5rem) scale(0.85);
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&--check:checked ~ &--background {
+		background-image: linear-gradient(to left bottom, $color-secondary2 1%, $color-primary);
+		transform: scale(65);
+	}
+
+	&--check:checked ~ &_ul {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&--check:checked + &--checkLabel &--checkLabel_span {
+		background-color: transparent;
+	}
+
+	&--check:checked + &--checkLabel &--checkLabel_span::before {
+		background-color: $color-tertiary2;
+		top: 0;
+		transform: rotate(135deg);
+	}
+
+	&--check:checked + &--checkLabel &--checkLabel_span::after {
+		background-color: $color-tertiary2;
+		top: 0;
+		transform: rotate(-135deg);
+	}
+}
+
+// 1000px
+@media only screen and (max-width: $bp-large) {
+	.banner {
+		grid-template-columns: min-content repeat(3, max-content);
+		grid-row-gap: 1.5rem;
+
+		&_social {
+			grid-gap: 1rem;
+		}
+
+		&-address {
+			grid-column: 1 / -1;
+			grid-row: 2 / 3;
+			font-size: 1rem;
+		}
+	}
+}
+
+@media only screen and (min-width: 801px) {
+	.miniNav {
+		display: none;
+	}
+}
+
+// 800px
+@media only screen and (max-width: $bp-medium) {
+	.banner {
+		&-img {
+			width: 18rem;
+		}
+
+		&-phone span {
+			display: none;
+		}
+
+		&-mail span {
+			display: none;
+		}
+
+		&-phone,
+		&-mail {
+			display: none;
+		}
+
+		&_social {
+			display: none;
+		}
+
+		&-address {
+			display: none;
+		}
+
+		&-address span {
+			display: none;
+		}
+	}
+
+	.menu {
+		display: none;
+	}
+}
+
+// 600px
+@media only screen and (max-width: $bp-small) {
+	.miniNav {
+		&--logo {
+			grid-column: 1 / 3;
+			grid-row: 1 / 2;
+			width: 50%;
+		}
+	}
+}

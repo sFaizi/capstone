@@ -1,0 +1,5 @@
+node_modules/
+notes.txt
+.eslintrc.json
+.prettierrc
+package-lock.json

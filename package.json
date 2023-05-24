@@ -1,0 +1,33 @@
+{
+	"name": "capstone",
+	"version": "1.0.0",
+	"main": "script.js",
+	"sourceType": "module",
+	"scripts": {
+		"watch:sass": "sass --watch sass/main.scss:style.css --style compressed",
+		"compile:js": "watchify ./js/index.js -o ./bundle.js",
+		"start": "npm-run-all --parallel watch:sass compile:js",
+		"obfuscate": "javascript-obfuscator ./public/js/bundle.js --output ./public/js/bundle.js"
+	},
+	"devDependencies": {
+		"browserify": "^17.0.0",
+		"eslint": "^8.36.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^8.7.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"javascript-obfuscator": "^4.0.2",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.8.4",
+		"sass": "^1.59.3",
+		"watchify": "^4.0.0"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": ""
+}

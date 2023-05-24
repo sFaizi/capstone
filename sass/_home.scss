@@ -1,0 +1,623 @@
+.services {
+	display: grid;
+	grid-gap: 5rem;
+	padding: 8rem 5rem;
+	background-color: rgba(#bebebe, 0.1);
+	&_head {
+		width: fit-content;
+		text-align: center;
+		font-size: 3rem;
+		border-bottom: 1px solid $color-secondary;
+		padding-bottom: 1rem;
+		font-family: $font-head;
+		place-self: center;
+	}
+
+	&_body {
+		justify-content: center;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 50rem);
+		grid-gap: 5rem;
+		&_unit {
+			display: grid;
+			grid-template-columns: 1fr 1.2fr;
+			grid-template-rows: min-content 1fr min-content;
+			grid-column-gap: 2rem;
+			grid-row-gap: 1rem;
+			padding: 0.5rem;
+			border-radius: 5px;
+			box-shadow: 2px 2px 5px $color-primary;
+			transition: background-color 0.3s, color 0.3s;
+			color: $color-tertiary;
+			user-select: none;
+			background-color: #fff;
+
+			&:hover {
+				box-shadow: 3px 3px 10px $color-primary;
+				background-color: $color-primary;
+			}
+
+			&-img {
+				grid-column: 1 / 2;
+				grid-row: 1 / -1;
+				border-radius: 5px;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			&-more {
+				grid-column: 1 / 2;
+				grid-row: 1 / -1;
+				border-radius: 5px;
+				width: 100%;
+				height: 100%;
+				background-image: linear-gradient(
+					to bottom,
+					rgba($color-secondary, 0.6),
+					rgba($color-secondary, 1)
+				);
+				font-size: 2.5rem;
+				text-decoration: none;
+				font-weight: 600;
+				text-align: center;
+				padding-top: 13rem;
+				color: $color-tertiary2;
+				opacity: 0;
+				visibility: visible;
+				transition: all 0.4s;
+				&:hover {
+					opacity: 1;
+					cursor: pointer;
+				}
+			}
+			&-cap {
+				grid-column: 2 / 3;
+				grid-row: 1 / 2;
+				font-size: 2.3rem;
+				font-weight: 500;
+				color: $color-secondary;
+				padding-top: 2rem;
+			}
+			&-des {
+				grid-column: 2 / 3;
+				grid-row: 2 / 3;
+				font-size: 1.5rem;
+				color: $color-primary;
+				line-height: 1.6;
+				padding: 1rem;
+			}
+			&-link {
+				grid-column: 2 / 3;
+				grid-row: 3 / 4;
+				font-size: 1.3rem;
+				place-self: end;
+				text-decoration: none;
+				color: $color-tertiary;
+				&:hover {
+					color: $color-primary;
+				}
+			}
+		}
+	}
+}
+
+.msg {
+	padding: 3rem;
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	grid-template-rows: max-content max-content;
+	grid-gap: 3rem;
+	background-image: linear-gradient(to bottom, rgba($color-primary, 1), rgba($color-secondary, 1));
+
+	&-img {
+		grid-column: 1 / 2;
+		grid-row: 1 / -1;
+		width: 100%;
+		border-radius: 3rem;
+	}
+
+	&-title {
+		grid-column: 2 / 3;
+		grid-row: 1 / 2;
+		color: $color-tertiary2;
+		font-size: 5rem;
+		place-self: end start;
+	}
+	&-text {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+		height: fit-content;
+		font-size: 1.8rem;
+		font-weight: 500;
+		line-height: 2;
+		background-color: $color-secondary;
+		border-radius: 3rem;
+		padding: 6.5rem;
+		position: relative;
+		color: $color-secondary2;
+
+		&::before,
+		&::after {
+			position: absolute;
+			display: block;
+			content: '';
+			background-image: url('../assets/images/quotation-marks-icon-3.jpg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 5.2rem;
+			height: 5.2rem;
+		}
+
+		&::after {
+			top: 2rem;
+			left: 2rem;
+		}
+
+		&::before {
+			bottom: 2rem;
+			right: 2rem;
+			transform: rotate(180deg);
+		}
+
+		&-auth {
+			display: block;
+			text-align: end;
+			padding: 0 5rem;
+		}
+	}
+}
+
+.clients {
+	display: grid;
+	grid-gap: 3rem;
+	text-align: center;
+
+	&-head {
+		color: $color-secondary;
+		font-size: 3rem;
+		border-bottom: 1px solid $color-secondary;
+		padding-bottom: 1rem;
+		font-family: $font-head;
+		place-self: center;
+	}
+	&_box {
+		justify-content: center;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 16rem);
+		grid-gap: 2rem;
+		&-img {
+			width: 100%;
+			transform: scale(0.9);
+			filter: saturate(0.6);
+			transition: all 0.5s ease-in-out;
+
+			&.highlighted {
+				transform: scale(1);
+				filter: saturate(2);
+				box-shadow: 1px 1px 10px $color-primary;
+			}
+		}
+	}
+	&-more {
+		font-size: 1.7rem;
+		font-weight: 600;
+		color: $color-primary;
+		padding: 0 2rem 0 0;
+		cursor: pointer;
+	}
+}
+
+.exp {
+	display: grid;
+	grid-gap: 2.5rem;
+	text-align: center;
+	margin-top: 5rem;
+	padding: 5rem 0;
+	background-color: $color-primary;
+	&-head {
+		color: #fff;
+		font-size: 3rem;
+		border-bottom: 1px solid #fff;
+		padding-bottom: 1rem;
+		font-family: $font-head;
+		width: fit-content;
+		place-self: center;
+	}
+	&-tag {
+		font-size: 2rem;
+		font-weight: 600;
+		color: $color-secondary2;
+		margin-bottom: 3rem;
+	}
+
+	&_list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 20rem);
+		justify-content: center;
+		grid-gap: 2rem;
+		&_data {
+			display: grid;
+			grid-gap: 1rem;
+			justify-items: center;
+			transition: all 0.2s;
+			&:hover {
+				transform: scale(1.2);
+			}
+			&-img {
+				height: 12rem;
+				width: 12rem;
+				border-radius: 50%;
+				object-fit: cover;
+				box-shadow: 2px 2px 7px $color-primary;
+			}
+			&-title {
+				font-size: 1.8rem;
+				color: $color-secondary2;
+			}
+			&-link {
+				font-size: 2.5rem;
+				text-decoration: none;
+				transform: translateY(-2rem);
+				color: $color-tertiary2;
+			}
+		}
+	}
+
+	&-contact {
+		text-decoration: none;
+		font-size: 1.5rem;
+		color: $color-secondary;
+	}
+}
+
+// 1200px
+@media only screen and (max-width: $bp-largest) {
+	.services {
+		&_head {
+			font-size: 2.5rem;
+		}
+		&_body {
+			grid-template-columns: repeat(auto-fill, 43rem);
+			&_unit {
+				&-more {
+					font-size: 2.4rem;
+					font-weight: 600;
+					padding-top: 10rem;
+				}
+				&-cap {
+					font-size: 2rem;
+				}
+				&-des {
+					font-size: 1.3rem;
+					line-height: 1.5;
+				}
+				&-link {
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
+
+	.msg {
+		grid-gap: 2.5rem;
+
+		&-title {
+			font-size: 4rem;
+		}
+		&-text {
+			font-size: 1.6rem;
+			padding: 6rem;
+
+			&::before,
+			&::after {
+				width: 4.5rem;
+				height: 4.5rem;
+			}
+		}
+	}
+
+	.exp {
+		grid-gap: 2rem;
+		&-head {
+			font-size: 2.5rem;
+			padding-bottom: 0.8rem;
+		}
+		&-tag {
+			font-size: 1.8rem;
+		}
+		&_list {
+			grid-template-columns: repeat(auto-fit, 15rem);
+			grid-gap: 1.5rem;
+			&_data {
+				&-img {
+					height: 10rem;
+					width: 10rem;
+				}
+				&-title {
+					font-size: 1.6rem;
+				}
+				&-link {
+					font-size: 2rem;
+				}
+			}
+		}
+
+		&-contact {
+			text-decoration: none;
+			font-size: 1.5rem;
+			color: $color-secondary;
+		}
+	}
+}
+
+// 1000px
+@media only screen and (max-width: $bp-large) {
+	.services {
+		grid-gap: 2rem;
+		margin: 2rem;
+		&_head {
+			font-size: 2.5rem;
+			padding-bottom: 0.5rem;
+		}
+		&_body {
+			grid-template-columns: repeat(auto-fill, 35rem);
+			grid-gap: 3rem;
+			&_unit {
+				grid-column-gap: 1.8rem;
+				grid-row-gap: 1rem;
+				&-more {
+					font-size: 2.3rem;
+					font-weight: 600;
+					padding-top: 8rem;
+				}
+				&-cap {
+					font-size: 1.8rem;
+				}
+				&-des {
+					font-size: 1.2rem;
+					line-height: 1.4;
+				}
+				&-link {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+
+	.msg {
+		grid-gap: 2rem;
+
+		&-title {
+			font-size: 3.5rem;
+		}
+		&-text {
+			font-size: 1.4rem;
+			padding: 4rem;
+
+			&::before,
+			&::after {
+				width: 4rem;
+				height: 4rem;
+			}
+
+			&::after {
+				top: 1rem;
+				left: 1rem;
+			}
+
+			&::before {
+				bottom: 1.5rem;
+				right: 1.5rem;
+			}
+		}
+	}
+
+	.clients {
+		&-head {
+			font-size: 2.6rem;
+		}
+		&_box {
+			grid-template-columns: repeat(auto-fill, 15rem);
+			grid-gap: 1.6rem;
+		}
+		&-more {
+			font-size: 1.6rem;
+		}
+	}
+
+	.exp {
+		grid-gap: 1.8rem;
+		padding: 3rem 0;
+		&-head {
+			font-size: 2rem;
+			padding-bottom: 0.6rem;
+		}
+		&-tag {
+			font-size: 1.7rem;
+		}
+
+		&_list {
+			grid-template-columns: repeat(auto-fit, 13rem);
+			grid-gap: 1.2rem;
+			&_data {
+				&-img {
+					height: 9rem;
+					width: 9rem;
+				}
+				&-title {
+					font-size: 1.4rem;
+				}
+				&-link {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+}
+
+// 800px
+@media only screen and (max-width: $bp-medium) {
+	.services {
+		grid-gap: 2.5rem;
+		margin: 1.2rem;
+		&_head {
+			font-size: 2.2rem;
+			padding-bottom: 0.2rem;
+		}
+		&_body {
+			grid-template-columns: repeat(auto-fill, 36rem);
+			grid-gap: 2.1rem;
+			&_unit {
+				&-more {
+					font-size: 2.2rem;
+					font-weight: 600;
+					padding-top: 5rem;
+				}
+				&-cap {
+					font-size: 1.6rem;
+				}
+				&-des {
+					font-size: 1.1rem;
+					line-height: 1.2;
+					padding: 0.5rem;
+				}
+				&-link {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+
+	.msg {
+		padding: 1rem;
+		grid-gap: 2rem;
+
+		&-img {
+			border-radius: 1rem;
+		}
+
+		&-title {
+			font-size: 2rem;
+		}
+		&-text {
+			line-height: 1.3;
+			font-size: 1.2rem;
+			padding: 2rem;
+			border-radius: 1rem;
+
+			&::before,
+			&::after {
+				width: 2.5rem;
+				height: 2.5rem;
+			}
+
+			&::after {
+				top: -0.5rem;
+				left: -0.5rem;
+			}
+
+			&::before {
+				bottom: 0rem;
+				right: 3rem;
+			}
+		}
+	}
+
+	.clients {
+		&-head {
+			font-size: 2.2rem;
+		}
+		&_box {
+			grid-template-columns: repeat(auto-fill, 14rem);
+			grid-gap: 1.5rem;
+		}
+	}
+}
+
+// 460px
+@media only screen and (max-width: $bp-old) {
+	.services {
+		grid-gap: 1rem;
+		padding: 4rem 0;
+		margin: 0;
+		&_body {
+			grid-template-columns: repeat(auto-fill, 35rem);
+		}
+	}
+
+	.msg {
+		padding: 1rem;
+		position: relative;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, min-content);
+		grid-gap: 1rem;
+
+		&-img {
+			grid-column: 1 / -1;
+			grid-row: 2 / 3;
+			border-radius: 1rem;
+		}
+
+		&-title {
+			grid-column: 1 / -1;
+			grid-row: 1 / 2;
+			font-size: 2rem;
+		}
+		&-text {
+			position: absolute;
+			bottom: -8rem;
+			right: 2.5rem;
+			line-height: 1.3;
+			font-size: 1.2rem;
+			padding: 2rem;
+			background-color: rgba($color-tertiary, 0.8);
+			color: $color-primary;
+			border-radius: 1rem;
+			width: 20rem;
+			place-self: start end;
+
+			&::before,
+			&::after {
+				width: 2.5rem;
+				height: 2.5rem;
+			}
+
+			&::after {
+				top: -0.5rem;
+				left: -0.5rem;
+			}
+
+			&::before {
+				bottom: 0rem;
+				right: 3rem;
+			}
+		}
+	}
+
+	.clients {
+		margin-top: 8rem;
+		&-head {
+			font-size: 2.2rem;
+		}
+		&_box {
+			grid-template-columns: repeat(auto-fill, 12rem);
+			grid-gap: 1rem;
+		}
+
+		&-more {
+			font-size: 1.5rem;
+			padding: 0 1.5rem 0 0;
+		}
+	}
+
+	.exp {
+		&-head {
+			font-size: 1.8rem;
+		}
+		&-tag {
+			font-size: 1.5rem;
+			font-weight: 500;
+		}
+	}
+}

@@ -1,0 +1,131 @@
+.slider {
+	display: grid;
+	grid-template-columns: min-content;
+	grid-template-rows: min-content;
+	overflow: hidden;
+
+	&_slides {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+
+		&-imgs {
+			width: 100vw;
+			height: 85vh;
+			object-fit: cover;
+			object-position: center;
+			animation: zoomIn 4s ease-in;
+			filter: saturate(1.2);
+		}
+	}
+
+	&_captions {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+		place-self: end center;
+		z-index: $z-low;
+		height: 60vh;
+		width: 100%;
+		background: linear-gradient(rgba($color-primary, 0), rgba($color-primary, 1));
+
+		display: grid;
+		justify-content: center;
+		align-content: end;
+		&-text {
+			font-size: 6.57rem;
+			font-weight: 600;
+			text-align: center;
+			line-height: 1.5;
+			color: #fff;
+			animation: enter_upward 1.5s ease-in;
+			margin: 0 5rem 5rem 5rem;
+		}
+	}
+
+	&_prev,
+	&_next {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+		font-size: 1.5rem;
+		color: $color-secondary2;
+		cursor: pointer;
+		border-radius: 5px;
+		padding: 0.6rem 1.4rem;
+		margin: 0 2rem;
+		background-color: rgba($color-primary, 0.4);
+		font-weight: 500;
+		border: 1px solid $color-secondary;
+		position: relative;
+		z-index: $z-medium;
+		&:hover {
+			background-color: rgba($color-primary, 1);
+			color: $color-tertiary;
+		}
+	}
+
+	&_prev {
+		place-self: center start;
+		&-btn {
+		}
+	}
+
+	&_next {
+		place-self: center end;
+		&-btn {
+		}
+	}
+}
+
+// 1200px
+@media only screen and (max-width: $bp-largest) {
+	.slider {
+		&_captions {
+			&-text {
+				font-size: 5rem;
+				margin: 0 4rem 4rem 4rem;
+			}
+		}
+	}
+}
+
+// 1000px
+@media only screen and (max-width: $bp-large) {
+	.slider {
+		&_slides {
+			&-imgs {
+				height: 65vh;
+			}
+		}
+		&_captions {
+			height: 50vh;
+			&-text {
+				font-size: 4rem;
+				margin: 0 3rem 4rem 3rem;
+			}
+		}
+	}
+}
+
+// 800px
+@media only screen and (max-width: $bp-medium) {
+	.slider {
+		&_prev,
+		&_next {
+			margin: 0 1rem;
+		}
+		&_captions {
+			&-text {
+				font-size: 3rem;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $bp-old) {
+	.slider {
+		&_slides {
+			&-imgs {
+				height: 95vh;
+			}
+		}
+	}
+}

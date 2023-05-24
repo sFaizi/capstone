@@ -1,0 +1,50 @@
+@keyframes zoomIn {
+	0% {
+		transform: scale(1.5) translateY(8rem);
+	}
+	100% {
+		transform: scale(1) translateY(0);
+	}
+}
+
+@keyframes enter_upward {
+	0% {
+		transform: translateY(10rem) scale(0.5);
+	}
+	100% {
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes enter_leftward {
+	0% {
+		transform: translateX(100rem);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes intersectionMover {
+	0% {
+		transform: translateY(18rem);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.movingUp {
+	animation: intersectionMover 1s ease;
+}
+
+@keyframes rotater {
+	from {
+		transform: rotateY(0deg);
+	}
+	to {
+		transform: rotateY(360deg);
+	}
+}

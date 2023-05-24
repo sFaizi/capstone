@@ -1,0 +1,47 @@
+// COLOR VARIABLES
+$color-primary: #202520; /* Main Primary color */
+$color-secondary: #094d92ff;
+$color-secondary2: #68b684ff;
+$color-tertiary: #95e06cff;
+$color-tertiary2: #e7f5c4;
+
+// FONT VARIABLES
+$font-head: 'Mulish', sans-serif;
+$font-general: 'Montserrat', sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+$bp-old: 28.75em; // 460px; but work on 320px
+
+// Layer z-index
+$z-sky: 1000;
+$z-highest: 100;
+$z-high: 80;
+$z-medium: 60;
+$z-low: 40;
+$z-lowest: 20;
+$z-ground: 1;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+	min-width: 320px;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: $font-general;
+	color: $color-primary;
+	position: relative;
+}
